@@ -11,10 +11,18 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import os, sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
+
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+PROJECT_ROOT = os.path.dirname(__file__)
+sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -31,6 +39,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'plate_number_rec_app.apps.PlateNumberRecAppConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -54,8 +63,10 @@ ROOT_URLCONF = 'app.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates']
-        ,
+        'DIRS': [
+            os.path.join(PROJECT_ROOT, 'templates')
+            # os.path.join(PROJECT_ROOT, 'static')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -101,12 +112,49 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
+# CMS_LANGUAGES = {
+#     ## Customize this
+#     'default': {
+#         'public': True,
+#         'hide_untranslated': False,
+#         'redirect_on_fallback': True,
+#     },
+#     1: [
+#         {
+#             'name': 'Русский',
+#             'public': True,
+#             'hide_untranslated': False,
+#             'redirect_on_fallback': True,
+#             'code': 'ru',
+#         },
+#         {
+#             'name': 'Українська',
+#             'public': True,
+#             'hide_untranslated': False,
+#             'redirect_on_fallback': True,
+#             'code': 'uk',
+#         },
+#         {
+#             'name': 'English',
+#             'public': True,
+#             'hide_untranslated': False,
+#             'redirect_on_fallback': True,
+#             'code': 'en',
+#         },
+#     ],
+# }
+
+LANGUAGES = (
+    ('uk', 'Ukrainian'),
+    ('en', 'English'),
+)
+
 # Internationalization
-# https://docs.djangoproject.com/en/3.2/topics/i18n/
+# https://docs.djangoproject.com/en/3.1/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America'
 
 USE_I18N = True
 
@@ -114,13 +162,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.2/howto/static-files/
+# https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
