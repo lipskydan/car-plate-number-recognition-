@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block title %}
+result page
+{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-center">
+            <aside class="col-sm-10">
+                <div class="card">
+                    <article class="card-body">
+                        <table align="center" width="95%" border="0">
+                            <tr>
+                                <td colspan="2"><h1 align="center">UPLOADED PAGE</h1></td>
+{#                                <td>2</td>#}
+                            </tr>
+                            <tr>
+                                <td colspan="2"><hr></td>
+                            </tr>
+                            <tr>
+                                <td align="center" width="75%">
+                                    <img src={{img}} alt="test_img">
+                                </td>
+                                <td width="25%">Original page</td>
+                            </tr>
+                             <tr>
+                                <td colspan="2"><hr></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <p align="right">
+                                        <a href="clear" class="btn btn-info btn-outline-light">BACK</a>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                        <br>
+
+
+
+
+
+
+                    </article>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+
+{% endblock %}
