@@ -52,3 +52,9 @@ Before             |  After
 Before             |  After
 :-------------------------:|:-------------------------:
 <img src="img_for_readme/contour.jpg"/> | ![alt text](img_for_readme/detected_each_char.jpg)
+
+## Створення моделі машинного навчання та її тренування 
+
+* Для моделювання ми будемо використовувати згорткову нейронну мережу з 3 шарами.
+
+<p align="center"><img src="img_for_readme/model.png"/></p>
