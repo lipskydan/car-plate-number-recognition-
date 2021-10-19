@@ -9,7 +9,7 @@ def recognise_plate(img_path):
     output_img, plate = detect_plate(img)
     # display(output_img, 'detected license plate in the input image')
 
-    char = segment_characters(plate)
+    # char = segment_characters(plate)
 
     # print(f'plate number is {show_results(char=char)}')
 

@@ -4,10 +4,10 @@ from plate_detection_tools import *
 
 def recognise_plate(img_path):
     img = cv2.imread(img_path)
-    # display(img, 'input image')
+    display(img, 'input image')
 
     output_img, plate = detect_plate(img)
-    # display(output_img, 'detected license plate in the input image')
+    display(output_img, 'detected license plate in the input image')
 
     char = segment_characters(plate)
 
@@ -15,4 +15,4 @@ def recognise_plate(img_path):
 
 
 if __name__ == "__main__":
-    recognise_plate('images/car5.jpeg')
+    recognise_plate('images/car4.jpeg')

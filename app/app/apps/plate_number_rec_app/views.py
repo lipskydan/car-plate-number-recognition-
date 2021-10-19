@@ -36,10 +36,13 @@ def main(request):
 
             car = CarPlateNumber(car_plate_img=cd['car_plate_img'])
 
-            # recognise_plate('app/media/images/' + car.name)
-
             car.name = car.car_plate_img.name
             car.save()
+
+            path_to_image = 'app/media/images/' + car.name
+            print(f'path_to_image is {path_to_image}')
+
+            recognise_plate('app/media/images/' + car.name)
 
             return render(request, 'plate_number_rec_app/result.html', {'img': 'media/images/' + car.name,
                                                                              'name': car.name})
