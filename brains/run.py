@@ -15,4 +15,4 @@ def recognise_plate(img_path):
 
 
 if __name__ == "__main__":
-    recognise_plate('images/car4.jpeg')
+    recognise_plate('images/car6.jpeg')
