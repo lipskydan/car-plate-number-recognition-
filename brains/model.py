@@ -7,6 +7,7 @@ from tensorflow.keras import optimizers
 from tensorflow.keras.layers import Dense, Flatten, MaxPooling2D, Dropout, Conv2D
 from tensorflow.keras.models import Sequential
 
+print(tf.__version__)
 
 def f1score(y, y_pred):
     return f1_score(y, tf.math.argmax(y_pred, axis=1), average='micro')

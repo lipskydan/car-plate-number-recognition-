@@ -31,21 +31,31 @@ def main(request):
         form = CarPlateNumberForm(request.POST, request.FILES)
 
         if form.is_valid():
-
             cd = form.cleaned_data
 
-            car = CarPlateNumber(car_plate_img=cd['car_plate_img'])
+            car = CarPlateNumber(car_img=cd['car_img'])
 
-            car.name = car.car_plate_img.name
+            car.name = car.car_img.name
+
+            car.detected_plate_img = 'media/images/detected_plate_image.jpg'
+            car.detected_each_char = 'media/images/detected_each_char.jpg'
+            car.contour = 'media/images/contour.jpg'
+
             car.save()
 
-            path_to_image = 'app/media/images/' + car.name
-            print(f'path_to_image is {path_to_image}')
+            # path_to_image = car.name
+            # print(f'path_to_image is {path_to_image}')
 
-            recognise_plate('app/media/images/' + car.name)
+            result = recognise_plate('media/images/' + car.name)
 
-            return render(request, 'plate_number_rec_app/result.html', {'img': 'media/images/' + car.name,
-                                                                             'name': car.name})
+            print(f'result = {result}')
+
+            return render(request, 'plate_number_rec_app/result.html', {'car_img': 'media/images/' + car.name,
+                                                                        'detected_plate_img': car.detected_plate_img,
+                                                                        'contour': car.contour,
+                                                                        'detected_each_char': car.detected_each_char,
+                                                                        'result': result,
+                                                                        'name': car.name})
     else:
         form = CarPlateNumberForm()
 

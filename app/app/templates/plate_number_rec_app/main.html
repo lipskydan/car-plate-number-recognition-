@@ -11,17 +11,11 @@ main page
                 <div class="card">
                     <article class="card-body">
                         <h1 align="center">MAIN PAGE</h1><br>
-
-{#                    <button type="button" class="btn btn-outline-success">Load Image</button>#}
-{##}
-{#                    <button type="button" class="btn btn-outline-success">START</button>#}
-
                     </article>
                 </div>
             </aside>
         </div>
     </div>
-
 
     <div class="container mt-5">
         <div class="d-flex justify-content-center">
@@ -33,10 +27,13 @@ main page
                             {% csrf_token %}
                             <p align="center">
                                 <label class="btn btn-outline-info" style="height:40px;width:520px">
-                                    Upload
-                                    {{ form.car_plate_img }}
+                                    Upload {{ form.car_img }}
                                 </label>
-                                <br>
+                            </p>
+
+                            <hr>
+
+                            <p align="center">
                                 <button type="submit" class="btn btn-outline-info" style="height:40px;width:520px">
                                     Continue
                                 </button>

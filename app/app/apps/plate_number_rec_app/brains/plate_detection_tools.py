@@ -19,7 +19,7 @@ def detect_plate(img, text=''):
         plate_img = cv2.putText(plate_img, text, (x - w // 2, y - h // 2),
                                 cv2.FONT_HERSHEY_COMPLEX_SMALL, 0.5, (51, 181, 155), 1, cv2.LINE_AA)
 
-    cv2.imwrite('app/media/images/detected_plate_image.jpg', plate_img)
+    cv2.imwrite('media/images/detected_plate_image.jpg', plate_img)
 
     return plate_img, plate
 
@@ -44,7 +44,7 @@ def find_contours(dimensions, img):
 
     cntrs = sorted(cntrs, key=cv2.contourArea, reverse=True)[:15]
 
-    ii = cv2.imread('app/media/images/contour.jpg')
+    ii = cv2.imread('media/images/contour.jpg')
 
     x_cntr_list = []
     target_contours = []
@@ -60,7 +60,7 @@ def find_contours(dimensions, img):
 
             cv2.rectangle(ii, (intX, intY), (intWidth + intX, intY + intHeight), (50, 21, 200), 2)
             # plt.imshow(ii, cmap='gray')
-            cv2.imwrite('app/media/images/detected_each_char.jpg', ii)
+            cv2.imwrite('media/images/detected_each_char.jpg', ii)
 
             char = cv2.subtract(255, char)
 
@@ -104,7 +104,7 @@ def segment_characters(image):
                        2*LP_HEIGHT/3]
     # plt.imshow(img_binary_lp, cmap='gray')
     # plt.show()
-    cv2.imwrite('app/media/images/contour.jpg',img_binary_lp)
+    cv2.imwrite('media/images/contour.jpg',img_binary_lp)
 
     char_list = find_contours(dimensions, img_binary_lp)
 
