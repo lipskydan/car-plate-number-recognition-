@@ -102,3 +102,4 @@ Before             |  After
 *  Протягом 41 епох модель досягла точності 98.38%
 
 <p align="center"><img src="img_for_readme/epohs.png"/></p>
+<p align="center"><img src="img_for_readme/g.jpg"/></p>
